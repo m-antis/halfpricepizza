@@ -1,12 +1,14 @@
 
 <div class="jumbotron">
   <div class="container" style="text-align: center">
-    <% if @result.last == "W"%>
+    <% if @result.last == "W" %>
       <% if (@date > @date - 1) && (@date < @date + 1) %>
         <p>The Brooklyn Nets won! Enjoy 50% off your order at Papa-John's until midnight, <%=  @time.strftime("%B %d, %Y") %>  Discount code: NETSWIN</p>
+      <% else %>
+      <p>Sorry, time has passed for a discount, please wait until next time.</p>
       <% end %>
-      <% elsif @result.last == "L"%>
-        <p>The Brooklyn Nets lost! Enjoy 50% off your order at Papa-John's until midnight</p>
+    <% else %>
+      <p>The Brooklyn Nets lost yesterday. Sorry, no half-price pizza today.</p>
     <% end %>
   </div>
   <button id="continue" type="button" class="btn btn-primary btn-lg">
