@@ -1,0 +1,20 @@
+
+<div class="jumbotron">
+  <div class="container" style="text-align: center">
+    <% if @result.last == "W"%>
+      <% if (@date > @date - 1) && (@date < @date + 1) %>
+        <p>The Brooklyn Nets won! Enjoy 50% off your order at Papa-John's until midnight, <%=  @time.strftime("%B %d, %Y") %>  Discount code: NETSWIN</p>
+      <% end %>
+    <% else %>
+      <p>The Brooklyn Nets either lost or didn't play yesterday. Sorry, no half-price pizza today.</p>
+    <% end %>
+  </div>
+   <button id="continue" type="button" class="btn btn-primary btn-lg">
+    <span>Buy pizza</span>
+  </button>
+  <button id="notnow" type="button" class="btn btn-warning btn-lg">
+    <span>Not right now</span>
+  </button>
+</div>
+
+
