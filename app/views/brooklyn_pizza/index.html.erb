@@ -5,8 +5,8 @@
       <% if (@date > @date - 1) && (@date < @date + 1) %>
         <p>The Brooklyn Nets won! Enjoy 50% off your order at Papa-John's until midnight, <%=  @time.strftime("%B %d, %Y") %>  Discount code: NETSWIN</p>
       <% end %>
-    <% else %>
-      <p>The Brooklyn Nets either lost or didn't play yesterday. Sorry, no half-price pizza today.</p>
+      <% elsif @result.last == "L"%>
+        <p>The Brooklyn Nets lost! Enjoy 50% off your order at Papa-John's until midnight</p>
     <% end %>
   </div>
   <button id="continue" type="button" class="btn btn-primary btn-lg">

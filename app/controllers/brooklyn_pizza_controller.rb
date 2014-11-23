@@ -12,7 +12,7 @@ class BrooklynPizzaController < ApplicationController
     # Scrape data from Web site
     @result = doc.css("#teams_games").xpath("//table/tbody/tr/td[8]/text()")
 
-    # Set time to current
+    # Set date to current
     @date = Date.today
 
   end
