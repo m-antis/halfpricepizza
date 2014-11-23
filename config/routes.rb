@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'brooklyn_pizza/index'
+  root 'brooklyn_pizza#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
