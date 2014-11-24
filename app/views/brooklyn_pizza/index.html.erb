@@ -1,22 +1,28 @@
-
 <div class="jumbotron">
   <div class="container" style="text-align: center">
-    <% if @result.last == "W" %>
-      <% if (@date > @date - 1) && (@date < @date + 1) %>
-        <p>The Brooklyn Nets won! Enjoy 50% off your order at Papa-John's until midnight, <%=  @time.strftime("%B %d, %Y") %>  Discount code: NETSWIN</p>
+    <% if @win_loss == 'W' %>
+      <% if (@date < @date_sale_end) %>
+        <p>The Brooklyn Nets won! Enjoy 50% off your order at Papa-John's until midnight, <%= @date_sale_end.strftime("%B %d, %Y") %>  Discount code: NETSWIN</p>
+        <div id="buttons" class="col-xs-12 col-sm-12 col-md-12">
+          <%= link_to "Create a pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
+          <button id="notnow" type="button" class="btn btn-danger btn-lg">
+            <span>Not right now</span>
+          </button>
+      </div>
       <% else %>
       <p>Sorry, time has passed for a discount, please wait until next time.</p>
       <% end %>
     <% else %>
-      <p>The Brooklyn Nets lost yesterday. Sorry, no half-price pizza today.</p>
+      <p id="lose">The Brooklyn Nets lost their last game on <%= @date.strftime("%B %d, %Y") %>. Sorry, no half-priced pizza today.</p>
+      <div id="buttons" class="col-xs-12 col-sm-12 col-md-12">
+        <%= link_to "I still want pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
+        <button id="notnow" type="button" class="btn btn-primary btn-lg">
+          <span>Let me know when they win</span>
+        </button>
     <% end %>
   </div>
-  <button id="continue" type="button" class="btn btn-primary btn-lg">
-    <span>Buy pizza</span>
-  </button>
-  <button id="notnow" type="button" class="btn btn-warning btn-lg">
-    <span>Not right now</span>
-  </button>
-</div>
-
-
+  <div class="container">
+    <div class="row">
+    </div>
+  </div>
+</div> 

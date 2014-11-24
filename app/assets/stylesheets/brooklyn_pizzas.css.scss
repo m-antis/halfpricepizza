@@ -1,23 +1,18 @@
-// Place all the styles related to the BrooklynPizzas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 .jumbotron {
   
   margin-top: 100px;
   height: 200px; 
 
+  #lose {
+/*    line-height: 100px;
+*/  }
+
   p {
     font-family: 'Arimo', sans-serif;
-    top: 10px;
   }
 
-  #continue {
-    margin: 10px 0 0 375px
-  }
+  #buttons {
+    
+  } 
 
-  #notnow {
-    margin: 10px 0 0 20px;
-  }
 }
