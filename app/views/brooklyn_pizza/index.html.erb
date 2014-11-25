@@ -13,12 +13,13 @@
       <p>Sorry, time has passed for a discount, please wait until next time.</p>
       <% end %>
     <% else %>
-      <p id="lose">The Brooklyn Nets lost their last game on <%= @date.strftime("%B %d, %Y") %>. Sorry, no half-priced pizza today.</p>
-      <div id="buttons" class="col-xs-12 col-sm-12 col-md-12">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <p id="lose">The Brooklyn Nets lost their last game on <%= @date.strftime("%B %d, %Y") %>. Sorry, no half-priced pizza today.</p>
         <%= link_to "I still want pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
-        <button id="notnow" type="button" class="btn btn-primary btn-lg">
-          <span>Let me know when they win</span>
-        </button>
+        <%= link_to "Let me know when they win", "", class: "btn btn-primary btn-lg", id: "continue", type: "button" %>
+      </div>
+    </div>
     <% end %>
   </div>
   <div class="container">

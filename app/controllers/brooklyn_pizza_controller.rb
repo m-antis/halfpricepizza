@@ -3,7 +3,6 @@
 	class BrooklynPizzaController < ApplicationController
 	  
 	  def index
-
 	    # URL for dynamic content
 	    url = "http://www.basketball-reference.com/teams/BRK/2015_games.html"
 
@@ -30,4 +29,5 @@
 
 			@date_sale_end = @date + 1.day 
 	  end
+	  
 	end
