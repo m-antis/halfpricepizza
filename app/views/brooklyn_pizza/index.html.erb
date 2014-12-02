@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="jumbotron">
-        <% if @win_loss == 'L' %>
+        <% if @win_loss == 'W' %>
           <% if (@date < @date_sale_end) %>
             <p>The Brooklyn Nets beat the <%= @opponent %>(<%= @brooklyn %>-<%= @opponent_score %>). Enjoy 50% off your order at Papa-John's until midnight, <%= @date_sale_end.strftime("%B %d, %Y") %>  Discount code: NETSWIN
               <br>
@@ -18,13 +18,13 @@
           <p>Sorry, time has passed for a discount, please wait until next time.</p>
           <% end %>
         <% else %>
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12">
-            <p id="lose">The Brooklyn Nets lost their last game on <%= @date.strftime("%B %d, %Y") %> to the <%= @opponent %> (<%= @brooklyn %>-<%= @opponent_score %>). Sorry, no half-priced pizza today. Their next game is <%= @next_game.strftime("%B %d, %Y") %> against the <%= @upcoming_opponent %>. Let's hope they win!</p>
-            <%= link_to "I still want pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
-            <%= link_to "Let me know when they win", "", class: "btn btn-primary btn-lg", id: "continue", type: "button" %>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <p id="lose">The Brooklyn Nets lost their last game on <%= @date.strftime("%B %d, %Y") %> to the <%= @opponent %> (<%= @brooklyn %>-<%= @opponent_score %>). Sorry, no half-priced pizza today. Their next game is <%= @next_game.strftime("%B %d, %Y") %> against the <%= @upcoming_opponent %>. Let's hope they win!</p>
+              <%= link_to "I still want pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
+              <%= link_to "Let me know when they win", "", class: "btn btn-primary btn-lg", id: "continue", type: "button" %>
+            </div>
           </div>
-        </div>
         <% end %>
       </div>
     </div>
