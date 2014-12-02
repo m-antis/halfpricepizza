@@ -32,6 +32,8 @@ class BrooklynPizzaController < ApplicationController
     @upcoming_opponent = doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(7)").text
     #Next game date
     @next_game = Date.parse(doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(2)").text)
+    #Next game tip off
+    @next_game_tip_off = doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(3)").text
   end
   
 end
