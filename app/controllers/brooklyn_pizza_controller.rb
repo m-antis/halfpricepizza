@@ -1,5 +1,6 @@
 require 'open-uri'
 class BrooklynPizzaController < ApplicationController
+
   def index
     # URL for dynamic content
     url = "http://www.basketball-reference.com/teams/BRK/2015_games.html"
@@ -27,5 +28,10 @@ class BrooklynPizzaController < ApplicationController
 		@date = Date.parse(date_col.text)
 		# Calculate sale end
 		@date_sale_end = @date + 1.day 
+    # Upcoming opponent
+    @upcoming_opponent = doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(7)").text
+    #Next game date
+    @next_game = Date.parse(doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(2)").text)
   end
+  
 end
