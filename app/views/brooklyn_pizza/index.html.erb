@@ -17,8 +17,8 @@
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
           <p id="lose">The Brooklyn Nets lost their last game on <%= @date.strftime("%B %d, %Y") %> to the <%= @opponent %> (<%= @brooklyn %>-<%= @opponent_score %>). Sorry, no half-priced pizza today.</p>
-          <%= link_to "I still want pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
-          <%= link_to "Let me know when they win", "", class: "btn btn-primary btn-lg", id: "continue", type: "button" %>
+          <%= link_to "I still want pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg btn-block", id: "continue", type: "button" %>
+          <%= link_to "Let me know when they win", "", class: "btn btn-primary btn-lg btn-block", id: "continue", type: "button" %>
         </div>
       </div>
       <% end %>
