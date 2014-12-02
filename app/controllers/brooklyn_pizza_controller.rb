@@ -19,6 +19,10 @@ class BrooklynPizzaController < ApplicationController
 		date_col = last_win_loss_row.at("td:nth-child(2)")
 		# Select last opponent
 		@opponent = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(7)").text
+		# Get BKLYN score
+		@brooklyn = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(10)").text
+		# Opponent score
+		@opponent_score = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(11)").text
 		# Parsed date
 		@date = Date.parse(date_col.text)
 		# Calculate sale end
