@@ -1,9 +1,11 @@
 .jumbotron {
-
-/*  margin-top: 15px;
-*/
+  
+  margin-top: 15px;
   p {
     font-family: 'Arimo', sans-serif;
+    text-align: center;
   }
-
+  .btn {
+  	margin: 5px 5px;
+  }
 }
