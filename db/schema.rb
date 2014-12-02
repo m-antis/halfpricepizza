@@ -11,6 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20141122211013) do
+
+  create_table "results", force: true do |t|
+    t.boolean  "score"
+    t.boolean  "score_char"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
