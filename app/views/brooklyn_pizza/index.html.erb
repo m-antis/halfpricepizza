@@ -6,7 +6,7 @@
           <% if (@date < @date_sale_end) %>
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12"> 
-                <p id="win">The Brooklyn Nets beat the <%= @opponent %> (<%= @brooklyn %>-<%= @opponent_score %>). Enjoy 50% off your order at Papa-John's until midnight, <%= @date_sale_end.strftime("%B %d, %Y") %> 
+                <p id="win">The Brooklyn Nets beat the <%= @opponent %> (<%= @brooklyn %>-<%= @opponent_score %>). Enjoy 50% off your order at Papa-John's until midnight, <%= @date_sale_end.strftime("%B %d, %Y") %>. 
                   Their next game is <%= @next_game.strftime("%B %d, %Y") %> at <%= @next_game_tip_off %> against the <%= @upcoming_opponent %>.
                   <br>
                   Discount code: NETSWIN
