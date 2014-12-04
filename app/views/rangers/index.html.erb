@@ -1,17 +1,78 @@
-<%  @result %>
-
-<div class="container" style="text-align: center">
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="jumbotron">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12">
-            <%= @result %>
-            <br>
-            <%= link_to "Create a pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
-            <%= link_to "Not right now", "/", class: "btn btn-danger btn-lg", id: "notnow", type: "button"  %>
-          </div>
-      </div>
+        <h1>New York Rangers</h1>
+        <table class="table table-hover">
+          <tbody>
+            <tr>
+              <td>Game result:
+                <td>
+                  <%= @result %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Score:
+                <td>
+                  <%= @rangers %>-<%= @opponent %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Opponent:
+                <td>
+                  <%= @opponent_name %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Discount code:
+                <td>
+                <% if @result == 'W' %>
+                  Rangers3
+                <% else %>
+                  Not applicable
+                <% end %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Valid until (midnight):
+                <td>
+                <% if @result == 'W' %>
+                  <%= @date.strftime("%B %d, %Y") %>
+                <% else %>
+                  Not applicable
+                <% end %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Next game: 
+                <td>
+                  <%= (@date + 1.day).strftime("%B %d, %Y") %>
+                </td>
+              </td>
+            </tr>
+           <tr>
+              <td>Time:
+                <td>
+                  <%= @time %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Opponent:
+                <td>
+                  <%= @next_opponent %>
+                </td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <%= link_to "Create a pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
+        <%= link_to "Not right now", "/", class: "btn btn-danger btn-lg", id: "notnow", type: "button"  %>
     </div>
   </div>
 </div>

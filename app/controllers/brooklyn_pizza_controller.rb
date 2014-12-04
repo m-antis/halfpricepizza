@@ -8,7 +8,7 @@ class BrooklynPizzaController < ApplicationController
   	# Select W/L column
     win_loss_tds = doc.css("#teams_games tbody tr td:nth-child(8):not(:empty)").last
     # Get text from W/L column
-    @win_loss = win_loss_tds.text
+    @result = win_loss_tds.text
     # The most recent row
 		last_win_loss_row = win_loss_tds.parent
 		# Game number from 1st column 
@@ -37,6 +37,8 @@ class BrooklynPizzaController < ApplicationController
     # Formatted dates and time
     @date_sale_end.strftime("%B %d, %Y")
     @next_game.strftime("%B %d, %Y")
+
+
 
   end
 end

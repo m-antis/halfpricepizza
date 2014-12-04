@@ -8,7 +8,7 @@
             <tr>
               <td>Game result:
                 <td>
-                  <%= @win_loss %>
+                  <%= @result %>
                 </td>
               </td>
             </tr>
@@ -27,9 +27,13 @@
               </td>
             </tr>
             <tr>
-              <td>Discount code::
+              <td>Discount code:
                 <td>
+                <% if @result == 'W' %>
                   NETSWIN
+                <% else %>
+                  Not applicable
+                <% end %>
                 </td>
               </td>
             </tr>
