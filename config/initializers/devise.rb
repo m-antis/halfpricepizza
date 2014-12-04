@@ -6,6 +6,9 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = 'd31086588cde6b13f7dc4b60a4c2180cbd064355075606d3dda3596aebe318e39a390a84dcd82a45efbd466c4edc284349e96b1aa5eac47ad8785a0ec493e625'
 
+  # config.secret_key = '9805bfc0b5cce37f709e7894e3c50e50912f29f94cd2a4aa609bf4a3723d088b282976d45afdbdbf1c9fdfe9ab8ae0d0c90f7307c92342f8b4e100bf6784f919'
+
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -62,6 +65,7 @@ Devise.setup do |config|
   # config.http_authenticatable = false
 
   # If 401 status code should be returned for AJAX requests. True by default.
+  # If http headers should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
 
   # The realm used in Http Basic Authentication. 'Application' by default.
@@ -98,6 +102,7 @@ Devise.setup do |config|
 
   # Setup a pepper to generate the encrypted password.
   # config.pepper = 'facebe6fc5261c03588c419171d3120d7325434341a6716327aca9a1b130ead044b12d27cbbf099c3f28fa651c539d1a9c46f9e87b13fddf51e3d4ad0f802a23'
+  # config.pepper = '2ebc87e79b6c4a86b6dbfceb07d3af39cda5d9e845ada9a130e510f832af4f24de6b6d4885503e94025b45d2e8b837b1bda9c5c9c0236e719b68bb42e310abf4'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -180,6 +185,7 @@ Devise.setup do |config|
 
   # Warn on the last attempt before the account is locked.
   # config.last_attempt_warning = true
+  # config.last_attempt_warning = false
 
   # ==> Configuration for :recoverable
   #
