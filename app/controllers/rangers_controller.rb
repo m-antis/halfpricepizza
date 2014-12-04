@@ -22,7 +22,6 @@ class RangersController < ApplicationController
     # Determine the most recent result (win or lose)
     @most_recent_result = doc.css("#games tbody tr:nth-child(#{most_recent_game_row + 1}) td:nth-child(6)").text
 
-
     if @most_recent_result == 'W'
       @result = 'The Rangers won!'
     else

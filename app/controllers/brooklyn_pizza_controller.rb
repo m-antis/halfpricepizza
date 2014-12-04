@@ -33,5 +33,10 @@ class BrooklynPizzaController < ApplicationController
     @next_game = Date.parse(doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(2)").text)
     #Next game tip off
     @next_game_tip_off = doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(3)").text
+
+    # Formatted dates and time
+    @date_sale_end.strftime("%B %d, %Y")
+    @next_game.strftime("%B %d, %Y")
+
   end
 end

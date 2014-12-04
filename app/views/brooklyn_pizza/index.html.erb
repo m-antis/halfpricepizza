@@ -1,33 +1,70 @@
-<div class="container" style="text-align: center">
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="jumbotron">
-        <% if @win_loss == 'W' %>
-          <% if (@date < @date_sale_end) %>
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12"> 
-                <p id="win">The Brooklyn Nets beat the <%= @opponent %> (<%= @brooklyn %>-<%= @opponent_score %>). Enjoy 50% off your order at Papa-John's until midnight, <%= @date_sale_end.strftime("%B %d, %Y") %>. 
-                  Their next game is <%= @next_game.strftime("%B %d, %Y") %> at <%= @next_game_tip_off %> against the <%= @upcoming_opponent %>.
-                  <br>
-                  Discount code: NETSWIN
-                </p>
-              </div>  
-            </div>
-            <%= link_to "Create a pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
-            <%= link_to "Not right now", "/", class: "btn btn-danger btn-lg", id: "notnow", type: "button"  %>
-          <% else %>
-            <p>Sorry, time has passed for a discount, please wait until next time.</p>
-          <% end %>
-        <% else %>
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-              <p id="lose">The Brooklyn Nets lost their last game on <%= @date.strftime("%B %d, %Y") %> to the <%= @opponent %> (<%= @brooklyn %>-<%= @opponent_score %>). Sorry, no half-priced pizza today. Their next game is <%= @next_game.strftime("%B %d, %Y") %> at <%= @next_game_tip_off %> against the <%= @upcoming_opponent %>. Let's hope they win!
-              </p>
-              <%= link_to "I still want pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
-              <%= link_to "Let me know when they win", "", class: "btn btn-primary btn-lg", id: "continue", type: "button" %>
-            </div>
-          </div>
-        <% end %>
+      <h1>Brooklyn Nets</h1>
+        <table class="table table-hover">
+          <tbody>
+            <tr>
+              <td>Game result:
+                <td>
+                  <%= @win_loss %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Score:
+                <td>
+                  <%= @brooklyn %>-<%= @opponent_score %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Opponent:
+                <td>
+                  <%= @opponent %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Discount code::
+                <td>
+                  NETSWIN
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Valid until (midnight):
+                <td>
+                  <%= @date_sale_end.strftime("%B %d, %Y") %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Next game:
+                <td>
+                  <%= @next_game.strftime("%B %d, %Y") %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Time:
+                <td>
+                  <%= @next_game_tip_off %>
+                </td>
+              </td>
+            </tr>
+            <tr>
+              <td>Opponent:
+                <td>
+                  <%= @upcoming_opponent %>
+                </td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <%= link_to "Create a pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
+        <%= link_to "Not right now", "/", class: "btn btn-danger btn-lg", id: "notnow", type: "button"  %>
       </div>
     </div>
   </div>
