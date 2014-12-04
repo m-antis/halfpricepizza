@@ -1,0 +1,110 @@
+/* line 1, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+.jumbotron {
+  margin-top: 15px;
+}
+/* line 4, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+.jumbotron p {
+  font-family: 'Arimo', sans-serif;
+  text-align: center;
+}
+/* line 8, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+.jumbotron .btn {
+  margin: 5px 5px;
+}
+
+/* line 13, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+.navbar-inverse {
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+
+/* line 18, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+body {
+  background: url("../../images/pizza2.jpg") top center no-repeat;
+  background-size: 100%;
+}
+
+/* line 23, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+.row {
+  margin-top: 0px !important;
+  height: 500px;
+}
+
+/* line 28, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+.justified {
+  text-align: justify;
+  color: #fff;
+}
+
+/* line 33, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+h1 {
+  color: #fff;
+  text-align: center;
+}
+
+/* --------------------------------------
+   Carousel
+   -------------------------------------- */
+/* line 41, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+footer {
+  background: #333;
+  color: #eee;
+  font-size: 11px;
+  padding: 20px;
+  margin-bottom: 0;
+}
+
+/* line 49, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+ul.unstyled {
+  list-style: none;
+  padding: 0;
+}
+
+/* line 54, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+.col-sm-2 {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* --------------------------------------
+   Carousel
+   -------------------------------------- */
+/* line 63, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+#myCarousel {
+  margin-top: 0px;
+}
+
+/* line 67, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+.carousel-caption {
+  font-size: 24px;
+}
+
+/* line 71, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+.carousel-caption h4 {
+  font-size: 32px;
+}
+
+/* line 75, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+#myCarousel .item {
+  height: 500px;
+}
+
+/* line 79, /Users/michael_antis/Programming/Rails Projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+#slide1 {
+  background: url("../../images/pizza1.jpg") top center no-repeat;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
