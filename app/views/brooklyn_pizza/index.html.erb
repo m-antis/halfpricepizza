@@ -7,15 +7,16 @@
           <tbody>
             <tr>
               <td>Game result:
-                <td>
-                  <%= @result %>
-                </td>
+                <td><%= @result %></td>
               </td>
             </tr>
             <tr>
               <td>Score:
                 <td>
                   <%= @brooklyn %>-<%= @opponent_score %>
+                  <% if @is_overtime %>
+                    (<%= @is_overtime %>)
+                  <% end %>
                 </td>
               </td>
             </tr>
@@ -38,16 +39,16 @@
               </td>
             </tr>
             <tr>
-              <td>Valid until (midnight):
+              <td>Valid until:
                 <td>
-                  <%= @date_sale_end.strftime("%B %d, %Y") %>
+                  <%= @date_sale_end.strftime("%B %d, %Y") %>  (midnight)
                 </td>
               </td>
             </tr>
             <tr>
               <td>Next game:
                 <td>
-                  <%= @next_game.strftime("%B %d, %Y") %>
+                  <%= @next_game.strftime("%B %d, %Y") %>  (<%= @home_away %>)
                 </td>
               </td>
             </tr>
