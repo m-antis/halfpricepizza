@@ -28,7 +28,7 @@ class RangersController < ApplicationController
 
     @opponent = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(9)").text
 
-    @date = Date.parse(doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(2)").text)
+    @date = Date.parse(doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(2)").text)
 
     @next_opponent = doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(5)").text
 
