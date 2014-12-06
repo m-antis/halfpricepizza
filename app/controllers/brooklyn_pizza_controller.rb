@@ -34,6 +34,21 @@ class BrooklynPizzaController < ApplicationController
     #Next game tip off
     @next_game_tip_off = doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(3)").text
 
+    @is_overtime = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").blank?
+
+    if !@is_overtime
+      @is_overtime = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").text
+    end
+
+    @home_away = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").text
+
+    if @home_away == '@'
+      @home_away = 'A'
+    else
+      @home_away = 'H'
+    end
+
+
     # Formatted dates and time
     @date_sale_end.strftime("%B %d, %Y")
     @next_game.strftime("%B %d, %Y")
