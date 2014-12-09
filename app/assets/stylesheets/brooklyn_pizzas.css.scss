@@ -3,24 +3,28 @@
 /*TEMPORARY, USE MEDIA QUERIES INSTEAD*/
 
 /*TEMPORARY, USE MEDIA QUERIES INSTEAD*/
-
-
 }
 
-  #rangers {
-    background-image:url('../../images/nyr_logo.png') top center no-repeat; 
-    background-size:100%;
-  }
+html, body {
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+}
+
+#rangers {
+  background: url('/assets/nyr_logo.png') repeat;
+  margin-bottom: 0px;
+}
 
 .jumbotron {
+  opacity: .97;
+  margin-top: 40px;
 
-  opacity: .95;
-  
-  margin-top: 15px;
   p {
     font-family: 'Arimo', sans-serif;
     text-align: center;
   }
+
   .btn {
   	margin: 5px 5px;
   }
@@ -30,21 +34,9 @@
   margin-top: 40px;
 }
 
-
-
 .navbar-inverse {
 	margin-bottom: 0px;
 	border-radius: 0px;
-}
-
-body {
-  /*background-image: url('../../images/pizza2.jpg') top center no-repeat; */
-  background-size:100%;
-}
-
-.row {
-  margin-top: 0px !important;
-  height: 500px;
 }
 
 .justified {
@@ -55,49 +47,4 @@ body {
 h2 {
   color: #000;
   text-align: center;
-}
-
-/* --------------------------------------
-   Carousel
-   -------------------------------------- */
-  footer {
-    background: #333;
-    color: #eee;
-    font-size: 11px;
-    padding: 20px;
-    margin-bottom: 0;
-  }
-
-  ul.unstyled {
-    list-style: none;
-    padding: 0;
-  }
-
-  .col-sm-2 {
-    text-align: center;
-    margin: 0 auto;
-  }
-
-/* --------------------------------------
-   Carousel
-   -------------------------------------- */
-
-#myCarousel {
-	margin-top: 0px;
-}
-
-.carousel-caption {
-	font-size: 24px;
-}
-
-.carousel-caption h4 {
-	font-size: 32px;
-}
-
-#myCarousel .item { 
-	height: 500px; 
-}
-
-#slide1 {
-	background: url('../../images/pizza1.jpg') top center no-repeat;
 }
