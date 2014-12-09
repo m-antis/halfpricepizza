@@ -31,9 +31,10 @@ class RangersController < ApplicationController
     @opponent_name = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(5)").text
 
     @rangers = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(8)").text
+    @extra_time = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(7)").text
 
     @opponent = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(9)").text
-
+    @date_result = Date.parse(doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(2)").text)
     @date = Date.parse(doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(2)").text)
     @date_formatted = @date.strftime("%a. %m/%-d/%Y")
 
@@ -41,9 +42,9 @@ class RangersController < ApplicationController
 
     @time = doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(3)").text
 
-    @at = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(4)").text
+    @at = doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(4)").text
 
-    if @at.blank?
+    if @at.empty?
       @at = 'vs.'
     else
       @at = '@'

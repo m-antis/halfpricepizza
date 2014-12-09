@@ -1,12 +1,20 @@
 .container {
 
 /*TEMPORARY, USE MEDIA QUERIES INSTEAD*/
-  width: 500px;
+
 /*TEMPORARY, USE MEDIA QUERIES INSTEAD*/
+
 
 }
 
+  #rangers {
+    background-image:url('../../images/nyr_logo.png') top center no-repeat; 
+    background-size:100%;
+  }
+
 .jumbotron {
+
+  opacity: .95;
   
   margin-top: 15px;
   p {
@@ -18,13 +26,19 @@
   }
 }
 
+.alert {
+  margin-top: 40px;
+}
+
+
+
 .navbar-inverse {
 	margin-bottom: 0px;
 	border-radius: 0px;
 }
 
 body {
-  background-image: url('../../images/pizza2.jpg') top center no-repeat; 
+  /*background-image: url('../../images/pizza2.jpg') top center no-repeat; */
   background-size:100%;
 }
 

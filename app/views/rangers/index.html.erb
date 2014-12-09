@@ -1,14 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
-      <div class="jumbotron">
+      <div class="jumbotron" id="rangers">
         <h2>New York Rangers</h2>
         <table class="table table-hover">
           <tbody>
             <tr>
               <td>Game result:
                 <td>
-                  <%= @result %> (on <%= (@date - 2.days).strftime("%A") %>)
+                  <%= @result %> 
+                  <% if Date.yesterday == @date_result %>
+                  on
+                    <%= @date_result.strftime("%A") %> (yesterday)
+                  <% else %>
+                  (on <%= (@date_result).strftime("%A") %>)
+                  <% end %>
                 </td>
               </td>
             </tr>
@@ -16,6 +22,9 @@
               <td>Score:
                 <td>
                   <%= @rangers %>-<%= @opponent %>
+                  <% if !@extra_time.empty? %>
+                    (<%= @extra_time %>)
+                  <% end %>
                 </td>
               </td>
             </tr>
@@ -26,16 +35,19 @@
                 </td>
               </td>
             </tr>
-            <tr>
-            <% if @result == 'W' %>
+            <tr style="font-weight:bold">
+            <% if @result == 'Won' %>
               <td>Discount code:
                 <td>Rangers3</td>
               </td>
+            </tr>
+            <tr style="font-weight:bold">
               <td>Valid until:
                 <td>
-                  <%= @date_formatted %>(11:59:59pm)
+                  <%= (@date_result + 1.day).strftime("%a. %m/%-d/%Y") %> (11:59:59pm)
                 </td>
               </td>
+            </tr>
             <% end %>
             </tr>
             <tr>
