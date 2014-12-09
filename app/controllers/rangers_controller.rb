@@ -22,6 +22,12 @@ class RangersController < ApplicationController
     # Determine the most recent result ('W' or 'L')
     @result = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(6)").text
 
+    if @result == 'W'
+      @result = 'Won'
+    else
+      @result = 'Lost'
+    end
+
     @opponent_name = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(5)").text
 
     @rangers = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(8)").text
@@ -29,10 +35,19 @@ class RangersController < ApplicationController
     @opponent = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(9)").text
 
     @date = Date.parse(doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(2)").text)
+    @date_formatted = @date.strftime("%a. %m/%-d/%Y")
 
     @next_opponent = doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(5)").text
 
     @time = doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(3)").text
+
+    @at = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(4)").text
+
+    if @at.blank?
+      @at = 'vs.'
+    else
+      @at = '@'
+    end
 
 
 

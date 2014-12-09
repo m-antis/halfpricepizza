@@ -8,7 +8,7 @@
             <tr>
               <td>Game result:
                 <td>
-                  <%= @result %>
+                  <%= @result %> (on <%= (@date - 2.days).strftime("%A") %>)
                 </td>
               </td>
             </tr>
@@ -27,47 +27,30 @@
               </td>
             </tr>
             <tr>
+            <% if @result == 'W' %>
               <td>Discount code:
+                <td>Rangers3</td>
+              </td>
+              <td>Valid until:
                 <td>
-                <% if @result == 'W' %>
-                  Rangers3
-                <% else %>
-                  Not applicable
-                <% end %>
+                  <%= @date_formatted %>(11:59:59pm)
                 </td>
               </td>
-            </tr>
-            <tr>
-              <td>Valid until (midnight):
-                <td>
-                <% if @result == 'W' %>
-                  <%= @date.strftime("%B %d, %Y") %>
-                <% else %>
-                  Not applicable
-                <% end %>
-                </td>
-              </td>
+            <% end %>
             </tr>
             <tr>
               <td>Next game: 
                 <td>
-                  <%= @date.strftime("%B %d, %Y") %>
+                  <% if (@date - 1).today? %>
+                    Tonight (<%= @date_formatted %>),
+                    <%= @time %>
+                  <% else %>
+                    <%= @date_formatted %> -
+                    <%= @time %>
+                  <% end %>
+                  <br>
+                   <%= @at %> <%= @next_opponent %>
                 </td>
-              </td>
-            </tr>
-           <tr>
-              <td>Time:
-                <td>
-                  <%= @time %>
-                </td>
-              </td>
-            </tr>
-            <tr>
-              <td>Opponent:
-                <td>
-                  <%= @next_opponent %>
-                </td>
-              </td>
             </tr>
           </tbody>
         </table>

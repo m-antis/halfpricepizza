@@ -27,26 +27,26 @@ class BrooklynPizzaController < ApplicationController
 	@date = Date.parse(date_col.text)
 	# Calculate sale end
 	@date_sale_end = @date + 1.day 
-    #1 Upcoming opponent
-    @upcoming_opponent = doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(7)").text
-    #Next game date
-    @next_game = Date.parse(doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(2)").text)
-    #Next game tip off
-    @next_game_tip_off = doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(3)").text
+  #1 Upcoming opponent
+  @upcoming_opponent = doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(7)").text
+  #Next game date
+  @next_game = Date.parse(doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(2)").text)
+  #Next game tip off
+  @next_game_tip_off = doc.css("#teams_games tbody tr:nth-child(#{game_num + 1}) td:nth-child(3)").text
 
-    @is_overtime = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").blank?
+  @is_overtime = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").blank?
 
-    if !@is_overtime
-      @is_overtime = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").text
-    end
+  if @is_overtime 
+    @is_overtime = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").text
+  end
 
-    @home_away = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").text
+  @home_away = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").text
 
-    if @home_away == '@'
-      @home_away = 'A'
-    else
-      @home_away = 'H'
-    end
+  if @home_away == '@'
+    @home_away = 'Away'
+  else
+    @home_away = 'Home'
+  end
 
 
     # Formatted dates and time
