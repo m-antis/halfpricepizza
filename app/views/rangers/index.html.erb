@@ -1,9 +1,8 @@
 
 <div class="row"  id="rangers">
   <div class="container">
-    <div>
-      <div class="jumbotron">
-        <h2>New York Rangers</h2>
+    <div class="jumbotron">
+      <h2>New York Rangers</h2>
         <table class="table table-hover">
           <tbody>
             <tr>
@@ -45,7 +44,11 @@
             <tr style="font-weight:bold">
               <td>Valid until:
                 <td>
-                  <%= (@date_result + 1.day).strftime("%a. %m/%-d/%Y") %> (11:59:59pm)
+                  <% if Date.today > (@date_result + 1.day) %>
+                    No longer valid
+                  <% else %>  
+                    <%= (@date_result + 1.day).strftime("%a. %m/%-d/%Y") %> (11:59:59pm)
+                  <% end %>
                 </td>
               </td>
             </tr>

@@ -9,11 +9,16 @@ html, body {
   padding: 0 !important;
   margin: 0 !important;
   overflow: hidden;
+  height: 100%;
+}
+
+.btn {
+  opacity: 100%;
 }
 
 #rangers {
+  height: 100%;
   background: url('/assets/nyr_logo.png') repeat;
-  margin-bottom: 0px;
 }
 
 .jumbotron {
@@ -41,7 +46,10 @@ html, body {
 
 .justified {
   text-align: justify;
-  color: #000;
+  p {
+    color: black;  
+  }
+  
 }
 
 h2 {
