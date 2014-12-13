@@ -38,10 +38,15 @@
             <tr style="font-weight:bold">
             <% if @result == 'Won' %>
               <td>Discount code:
+              <% if Date.today > (@date_played + 1.day) %>
+                <td>No longer available</td>
+              <% else %>
                 <td>Rangers3</td>
+              <% end %>
               </td>
             </tr>
             <tr style="font-weight:bold">
+            <% if Date.today < (@date_played + 1.day) %>
               <td>Valid until:
                 <td>
                   <% if Date.today > (@date_played + 1.day) %>
@@ -51,10 +56,11 @@
                   <% end %>
                 </td>
               </td>
+            <% end %>
             </tr>
             <% end %>
             </tr>
-            <tr>
+            <tr style="font-weight:bold">
               <td>Next game: 
                 <td>
                   <% if (@next_faceoff - 1).today? %>
