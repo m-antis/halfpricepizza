@@ -7,51 +7,61 @@ class RangersController < ApplicationController
     url = "http://www.hockey-reference.com/teams/NYR/2015_games.html"
     doc = Nokogiri::HTML(open(url))
 
-    # Array of all game results (won or lost)
-    win_loss_col = doc.css("#games tbody tr td:nth-child(6)").to_a
+    win_loss_col_array = doc.css("#games tbody tr td:nth-child(6)").to_a
 
-    # Find most recent game in table by searching array 'win_loss_col'
-    for i in 0 ... win_loss_col.size
-      if win_loss_col[i].blank? # If game postponed
+    # Find most recent game playedin table
+    for i in 0 ... win_loss_col_array.size
+      if win_loss_col_array[i].blank? # If game postponed
         game_played = i + 3
-      elsif (win_loss_col[i].text == 'W' || win_loss_col[i].text == 'L') && ((win_loss_col[i + 1].text) == 'Get Tickets')
+      elsif (win_loss_col_array[i].text == 'W' || win_loss_col_array[i].text == 'L') && ((win_loss_col_array[i + 1].text) == 'Get Tickets')
         game_played = i + 2
       end
     end
     
-    # Determine the most recent result ('W' or 'L')
-    @result = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(6)").text
+    @recent_game_tr = doc.css("#games tbody tr:nth-child(#{game_played})")
+    @next_game_tr = doc.css("#games tbody tr:nth-child(#{game_played + 1})")
 
-    if @result == 'W'
-      @result = 'Won'
-    else
-      @result = 'Lost'
-    end
-
-    @opponent_name = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(5)").text
-
-    @rangers = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(8)").text
-    @extra_time = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(7)").text
-
-    @opponent = doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(9)").text
-    @date_result = Date.parse(doc.css("#games tbody tr:nth-child(#{game_played}) td:nth-child(2)").text)
-    @date = Date.parse(doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(2)").text)
-    @date_formatted = @date.strftime("%a. %m/%-d/%Y")
-
-    @next_opponent = doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(5)").text
-
-    @time = doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(3)").text
-
-    @at = doc.css("#games tbody tr:nth-child(#{game_played + 1}) td:nth-child(4)").text
-
-    if @at.empty?
-      @at = 'vs.'
-    else
-      @at = '@'
-    end
-
-
-
-
+    for i in 1..9
+      case i
+      when 1
+        @game_number = @recent_game_tr.at_css("td:nth-child(#{i})").text
+      when 2
+        @date_played = Date.parse(@recent_game_tr.at_css("td:nth-child(#{i})"))
+        @next_faceoff = Date.parse(@next_game_tr.at_css("td:nth-child(#{i})"))
+        @next_faceoff_formatted = @next_faceoff.strftime("%a. %m/%-d/%Y")
+      when 3
+        @faceoff_time = @recent_game_tr.at_css("td:nth-child(#{i})").text
+        @next_game_time = @next_game_tr.at_css("td:nth-child(#{i})").text
+      when 4
+        @location = @recent_game_tr.at_css("td:nth-child(#{i})").text
+        if @location.empty?
+          @location = 'vs.'
+        else
+          @location = '@'
+        end
+        @next_location = @next_game_tr.at_css("td:nth-child(#{i})").text
+        if @next_location.empty?
+          @next_location = 'vs.'
+        else
+          @next_location = '@'
+        end
+      when 5
+        @recent_opponent = @recent_game_tr.at_css("td:nth-child(#{i})").text
+        @next_opponent = @next_game_tr.at_css("td:nth-child(#{i})").text
+      when 6
+        @result = @recent_game_tr.at_css("td:nth-child(#{i})").text
+        if @result == 'W'
+          @result = 'Won'
+        else
+          @result = 'Lost'
+        end
+      when 7
+        @result_variation = @recent_game_tr.at_css("td:nth-child(#{i})").text
+      when 8
+        @rangers = @recent_game_tr.at_css("td:nth-child(#{i})").text
+      when 9
+        @opponent = @recent_game_tr.at_css("td:nth-child(#{i})").text
+      end
+    end         
   end
 end
