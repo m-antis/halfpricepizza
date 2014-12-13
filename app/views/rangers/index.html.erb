@@ -9,11 +9,11 @@
               <td>Game result:
                 <td>
                   <%= @result %> 
-                  <% if Date.yesterday == @date_result %>
+                  <% if Date.yesterday == @date_played %>
                   on
-                    <%= @date_result.strftime("%A") %> (yesterday)
+                    <%= @date_played.strftime("%A") %> (yesterday)
                   <% else %>
-                  (on <%= (@date_result).strftime("%A") %>)
+                  (on <%= (@date_played).strftime("%A") %>)
                   <% end %>
                 </td>
               </td>
@@ -22,8 +22,8 @@
               <td>Score:
                 <td>
                   <%= @rangers %>-<%= @opponent %>
-                  <% if !@extra_time.empty? %>
-                    (<%= @extra_time %>)
+                  <% if !@result_variation.empty? %>
+                    (<%= @result_variation %>)
                   <% end %>
                 </td>
               </td>
@@ -31,41 +31,47 @@
             <tr>
               <td>Opponent:
                 <td>
-                  <%= @opponent_name %>
+                  <%= @recent_opponent %>
                 </td>
               </td>
             </tr>
             <tr style="font-weight:bold">
             <% if @result == 'Won' %>
               <td>Discount code:
+              <% if Date.today > (@date_played + 1.day) %>
+                <td>No longer available</td>
+              <% else %>
                 <td>Rangers3</td>
+              <% end %>
               </td>
             </tr>
             <tr style="font-weight:bold">
+            <% if Date.today < (@date_played + 1.day) %>
               <td>Valid until:
                 <td>
-                  <% if Date.today > (@date_result + 1.day) %>
+                  <% if Date.today > (@date_played + 1.day) %>
                     No longer valid
                   <% else %>  
-                    <%= (@date_result + 1.day).strftime("%a. %m/%-d/%Y") %> (11:59:59pm)
+                    <%= (@date_played + 1.day).strftime("%a. %m/%-d/%Y") %> (11:59:59pm)
                   <% end %>
                 </td>
               </td>
+            <% end %>
             </tr>
             <% end %>
             </tr>
-            <tr>
+            <tr style="font-weight:bold">
               <td>Next game: 
                 <td>
-                  <% if (@date - 1).today? %>
-                    Tonight (<%= @date_formatted %>),
-                    <%= @time %>
+                  <% if (@next_faceoff - 1).today? %>
+                    Tonight (<%= @next_faceoff_formatted %>),
+                    <%= @next_game_time %>
                   <% else %>
-                    <%= @date_formatted %> -
-                    <%= @time %>
+                    <%= @next_faceoff_formatted %> -
+                    <%= @next_game_time %>
                   <% end %>
                   <br>
-                   <%= @at %> <%= @next_opponent %>
+                   <%= @next_location %> <%= @next_opponent %>
                 </td>
             </tr>
           </tbody>
