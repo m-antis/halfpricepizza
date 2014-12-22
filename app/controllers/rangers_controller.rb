@@ -3,13 +3,12 @@ require 'open-uri'
 class RangersController < ApplicationController
 
   def index
-
     url = "http://www.hockey-reference.com/teams/NYR/2015_games.html"
     doc = Nokogiri::HTML(open(url))
 
     win_loss_col_array = doc.css("#games tbody tr td:nth-child(6)").to_a
 
-    # Find most recent game playedin table
+    # Find most recent game played in table
     for i in 0 ... win_loss_col_array.size
       if win_loss_col_array[i].blank? # If game postponed
         game_played = i + 3
