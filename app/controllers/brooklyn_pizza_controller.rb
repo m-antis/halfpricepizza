@@ -1,15 +1,16 @@
 require 'open-uri'
 class BrooklynPizzaController < ApplicationController
   def index
-    # URL for dynamic content
-    url = "http://www.basketball-reference.com/teams/BRK/2015_games.html"
-    # Open URL using nokogiri
-    doc = Nokogiri::HTML(open(url))
-  	# Select W/L column
-    win_loss_tds = doc.css("#teams_games tbody tr td:nth-child(8):not(:empty)").last
-    # Get text from W/L column
-    @result = win_loss_tds.text
-    # The most recent row
+
+  # URL for dynamic content
+  url = "http://www.basketball-reference.com/teams/BRK/2015_games.html"
+  # Open URL using nokogiri
+  doc = Nokogiri::HTML(open(url))
+	# Select W/L column
+  win_loss_tds = doc.css("#teams_games tbody tr td:nth-child(8):not(:empty)").last
+  # Get text from W/L column
+  @result = win_loss_tds.text
+  # The most recent row
 	last_win_loss_row = win_loss_tds.parent
 	# Game number from 1st column 
 	game_num_col = last_win_loss_row.at("td:first-child")
@@ -36,7 +37,7 @@ class BrooklynPizzaController < ApplicationController
 
   @is_overtime = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").blank?
 
-  if @is_overtime 
+  if !@is_overtime 
     @is_overtime = doc.css("#teams_games tbody tr:nth-child(#{game_num}) td:nth-child(9)").text
   end
 
