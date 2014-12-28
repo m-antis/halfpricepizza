@@ -63,7 +63,7 @@
             <tr style="font-weight:bold">
               <td>Next game: 
                 <td>
-                  <% if (@next_faceoff - 1).today? %>
+                  <% if @next_faceoff.today? %>
                     Tonight (<%= @next_faceoff_formatted %>),
                     <%= @next_game_time %>
                   <% else %>
