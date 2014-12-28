@@ -1,5 +1,6 @@
 	<div id="landing-page" class="row">
 	<div class="container">
+		<br>
 		<div class="col-md-6">
 			<h1>How It Works</h1>
 			<hr>
@@ -7,7 +8,7 @@
 				Half-price Pizza is an alert system for discounted (50% off) pizza at Papa John's. For now, we are focused only on NY sports teams. The rule is simple, if the sports team performs well-enough (i.e. win, score 6 or more runs, and etc.), you get 50% off Papa John's regular priced menu items for the following day.
 			</p><!-- end p -->
 		</div><!-- end col-md-6 -->
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<h1>Sign up</h1>
 			<hr>
 			<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -29,7 +30,7 @@
 				</div>
 
 				<div class="form-group">
-					<%= f.label :email %><br />
+					<%= f.label "E-mail" %><br />
 					<%= f.email_field :email, autofocus: true, class: "form-control" %>
 				</div><!-- end form-group -->
 
