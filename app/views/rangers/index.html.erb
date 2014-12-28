@@ -36,23 +36,23 @@
               </td>
             </tr>
             <tr style="font-weight:bold">
-            <% if @result == 'Won' %>
-              <td>Discount code:
-              <% if Date.today > (@date_played + 1.day) %>
-                <td>No longer available</td>
-              <% else %>
-                <td>Rangers3</td>
-              <% end %>
-              </td>
+              <% if @result == 'Won' %>
+                <td>Discount code:
+                <% if Date.today > (@date_played + 1.day) %>
+                  <td>No longer available</td>
+                <% else %>
+                  <td>Rangers3</td>
+                <% end %>
+                </td>
             </tr>
             <tr style="font-weight:bold">
-            <% if Date.today < (@date_played + 1.day) %>
+            <% if Date.today <= (@date_played + 1.day) %>
               <td>Valid until:
                 <td>
                   <% if Date.today > (@date_played + 1.day) %>
                     No longer valid
                   <% else %>  
-                    <%= (@date_played + 1.day).strftime("%a. %m/%-d/%Y") %> (11:59:59pm)
+                    Tonight - <%= (@date_played + 1.day).strftime("%a. %m/%-d/%Y") %> (11:59:59pm)
                   <% end %>
                 </td>
               </td>
