@@ -14,7 +14,8 @@ html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:1
 html, body {
   padding: 0 !important;
   margin: 0 !important;
-  overflow: hidden;
+  /*  overflow: hidden;
+  */
   height: 100%;
 }
 
@@ -51,7 +52,7 @@ html, body {
 
 /* line 42, /Users/michael_antis/Programming/rails_projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
 .navbar-inverse {
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   border-radius: 0px;
 }
 
@@ -67,13 +68,18 @@ h2 {
   text-align: center;
 }
 
-/* line 58, /Users/michael_antis/Programming/rails_projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+/* line 56, /Users/michael_antis/Programming/rails_projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+.marketing {
+  margin-top: 50px;
+}
+
+/* line 60, /Users/michael_antis/Programming/rails_projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
 .logo img {
   display: block;
   margin: auto;
 }
 
-/* line 64, /Users/michael_antis/Programming/rails_projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
+/* line 66, /Users/michael_antis/Programming/rails_projects/halfpizza/app/assets/stylesheets/brooklyn_pizzas.css.scss */
 h1.registration {
   text-align: center;
 }
