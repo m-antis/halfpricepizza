@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   get '/rangers' => 'rangers#index'
+  get '/nets' => 'brooklyn_pizza#index'
 
 	devise_for :users
 	devise_scope :user do
