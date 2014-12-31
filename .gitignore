@@ -15,7 +15,8 @@
 /log/*.log
 /tmp
 
-/config/secrets.yml
+config/secrets.yml
+local_prod
 
 # Ignore application configuration
 /config/application.yml
