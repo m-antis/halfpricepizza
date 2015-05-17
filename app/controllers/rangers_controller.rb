@@ -16,7 +16,7 @@ class RangersController < ApplicationController
         game_played = i + 2
       end
     end
-    
+
     @recent_game_tr = doc.css("#games tbody tr:nth-child(#{game_played})")
     @next_game_tr = doc.css("#games tbody tr:nth-child(#{game_played + 1})")
 
@@ -61,6 +61,6 @@ class RangersController < ApplicationController
         when 9
           @opponent = @recent_game_tr.at_css("td:nth-child(#{i})").text
       end
-    end         
+    end
   end
 end

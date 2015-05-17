@@ -1,48 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Half Price Pizza</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "application", '//fonts.googleapis.com/css?family=Rock+Salt', :media => "all" %>
-
-
-    <!-- Tell small device browsers how to scale the page -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  </head>
-  <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-    	<% if notice %>
-    		<div class="alert alert-success alert-dismissible" role="alert">
-      		<button type="button" class="close" data-dismiss="alert">
-      			<span aria-hidden="true">&times;</span>
-      			<span class="sr-only">Close</span>
-      		</button>
-      		<%= notice %>
-    		</div><!-- end notice -->
-    	<% end %>
-    	<% if alert %>
-    		<div class="alert alert-danger alert-dismissible" role="alert">
-    			<button type="button" class="close" data-dismiss="alert">
-    				<span aria-hidden="true">&times;</span>
-    				<span class="sr-only">Close</span>
-    			</button>
-    			<%= alert %>
-    		</div><!-- end alert -->
-    	<% end %>
-    </div><!-- end container -->
-    <%= yield %>
-    <div class="container">
-      <div class="row>">
-        <div class="col-lg-12">
-          <div  id="github">
-            <a href="https://github.com/m-antis/halfpricepizza">Fork Us On GitHub &nbsp;<img src="../../assets/gh-mark.png"></a>
-          </div>
+    <head>
+        <title>Half Price Pizza</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag "application", '//fonts.googleapis.com/css?family=Rock+Salt', :media => "all" %>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    </head>
+    <body>
+        <%= render 'layouts/header' %>
+        <div class="container">
+            <% if notice %>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <%= notice %>
+                 </div>
+            <% end %>
+            <% if alert %>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <%= alert %>
+                </div>
+            <% end %>
         </div>
-      </div>
-    </div>
-  </body>
+        <%= yield %>
+        <div class="container">
+            <div class="row>">
+                <div class="col-lg-12">
+                    <div id="github">
+                        <a href="https://github.com/m-antis/halfpricepizza">Fork Us On GitHub &nbsp;<img src="../../assets/gh-mark.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

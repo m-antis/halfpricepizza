@@ -1,91 +1,83 @@
-
 <div class="row"  id="rangers">
-  <div class="container">
-    <div class="jumbotron">
-      <h2>New York Rangers</h2>
-        <table class="table table-hover">
-          <tbody>
-            <tr>
-              <td>Game result:
-                <td>
-                  <%= @result %> 
-                  <% if Date.yesterday == @date_played %>
-                  on
-                    <%= @date_played.strftime("%A") %> (yesterday)
-                  <% else %>
-                  (on <%= (@date_played).strftime("%A") %>)
-                  <% end %>
-                </td>
-              </td>
-            </tr>
-            <tr>
-              <td>Score:
-                <td>
-                  <%= @rangers %>-<%= @opponent %>
-                  <% if !@result_variation.empty? %>
-                    (<%= @result_variation %>)
-                  <% end %>
-                </td>
-              </td>
-            </tr>
-            <tr>
-              <td>Opponent:
-                <td>
-                  <%= @recent_opponent %>
-                </td>
-              </td>
-            </tr>
-            <tr style="font-weight:bold">
-              <% if @result == 'Won' %>
-                <td>Discount code:
-                <% if Date.today > (@date_played + 1.day) %>
-                  <td>No longer available</td>
-                <% else %>
-                  <td>Rangers3</td>
-                <% end %>
-                </td>
-            </tr>
-            <tr style="font-weight:bold">
-            <% if Date.today <= (@date_played + 1.day) %>
-              <td>Valid until:
-                <td>
-                  <% if Date.today > (@date_played + 1.day) %>
-                    No longer valid
-                  <% else %>  
-                    Tonight - <%= (@date_played + 1.day).strftime("%a. %m/%-d/%Y") %> (11:59:59pm)
-                  <% end %>
-                </td>
-              </td>
-            <% end %>
-            </tr>
-            <% end %>
-            </tr>
-            <tr style="font-weight:bold">
-              <td>Next game: 
-                <td>
-                  <% if @next_faceoff.today? %>
-                    Tonight (<%= @next_faceoff_formatted %>),
-                    <%= @next_game_time %>
-                  <% else %>
-                    <%= @next_faceoff_formatted %> -
-                    <%= @next_game_time %>
-                  <% end %>
-                  <br>
-                   <%= @next_location %> <%= @next_opponent %>
-                </td>
-            </tr>
-          </tbody>
-        </table>
-        <div style="text-align:center">
-        <%= link_to "Create a pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
-        <%= link_to "Not right now", "/", class: "btn btn-danger btn-lg", id: "notnow", type: "button"  %>
+    <div class="container">
+        <div class="jumbotron">
+            <h2>New York Rangers</h2>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td>Game result:
+                                <td>
+                                    <%= @result %>
+                                    <% if Date.yesterday == @date_played %>
+                                        on
+                                        <%= @date_played.strftime("%A") %> (yesterday)
+                                    <% else %>
+                                        (on <%= (@date_played).strftime("%A") %>)
+                                    <% end %>
+                                </td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Score:
+                                <td>
+                                    <%= @rangers %>-<%= @opponent %>
+                                    <% if !@result_variation.empty? %>
+                                        (<%= @result_variation %>)
+                                    <% end %>
+                                </td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Opponent:
+                                <td>
+                                    <%= @recent_opponent %>
+                                </td>
+                            </td>
+                        </tr>
+                            <tr style="font-weight:bold">
+                                <% if @result == 'Won' %>
+                                    <td>Discount code:
+                                        <% if Date.today > (@date_played + 1.day) %>
+                                            <td>No longer available</td>
+                                        <% else %>
+                                            <td>Rangers3</td>
+                                        <% end %>
+                                    </td>
+                            </tr>
+                                <tr style="font-weight:bold">
+                                    <% if Date.today <= (@date_played + 1.day) %>
+                                        <td>Valid until:
+                                            <td>
+                                                <% if Date.today > (@date_played + 1.day) %>
+                                                    No longer valid
+                                                <% else %>
+                                                    Tonight - <%= (@date_played + 1.day).strftime("%a. %m/%-d/%Y") %> (11:59:59pm)
+                                                <% end %>
+                                            </td>
+                                        </td>
+                                    <% end %>
+                                </tr>
+                                <% end %>
+                                <tr style="font-weight:bold">
+                                    <td>Next game:
+                                        <td>
+                                            <% if @next_faceoff.today? %>
+                                                Tonight (<%= @next_faceoff_formatted %>),
+                                                <%= @next_game_time %>
+                                            <% else %>
+                                                <%= @next_faceoff_formatted %> -
+                                                <%= @next_game_time %>
+                                            <% end %>
+                                            <br>
+                                            <%= @next_location %> <%= @next_opponent %>
+                                        </td>
+                                </tr>
+                      </tbody>
+                  </table>
+                  <div style="text-align:center">
+                      <%= link_to "Create a pizza", "http://order.papajohns.com/index.html?site=WEB", class: "btn btn-success btn-lg", id: "continue", type: "button" %>
+                      <%= link_to "Not right now", "/", class: "btn btn-danger btn-lg", id: "notnow", type: "button"  %>
+                  </div>
         </div>
-      </div><!-- end jumbotron -->
     </div>
-  </div>
-
-
-
-
-
-
+</div>
